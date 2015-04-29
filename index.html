@@ -142,28 +142,28 @@ wp-content/uploads/
 			<section>
 				<h2>Adding files to the repo</h2>
 				<pre><code>
-git status
-git add filename.txt
-git status
-#add all changes
-git add --all
+git status #get current repo status
+git add filename.txt #add specific file to my next commit
+git status #get current repo status
+
+git add --all #add all changes
 				</code></pre>
 			</section>
 			<section>
 				<h2>Commiting files to the repo</h2>
 				<pre><code>
-git commit -m "added new files"
-git status
-#add all and commit at the same time
-git commit -a -m "added new files"
+git commit -m "added new files" #commit new files with message
+git status #get current repo status
+
+git commit -a -m "added new files" #add all and commit at the same time
 				</code></pre>
 			</section>
 			<section>
 				<h2>Pushing files to the repo</h2>
 				<pre><code>
-git push origin master
-git status
-git diff
+git push origin master #push origin to master
+git status #get current repo status
+git diff #see differences made from presiouve
 				</code></pre>
 			</section>
 		</section>
@@ -172,10 +172,11 @@ git diff
 			<section>
 				<h2>Branching from master</h2>
 				<pre><code>
-git branch temporary
-git checkout temporary
-#create branch and checkout branch
-git checkout -b temporary
+git branch temporary #creates branch temporary
+git branch #lists branches
+git checkout temporary #change branch to temporary
+
+git checkout -b temporary #create branch and checkout branch
 				</code></pre>
 			</section>
 			<section>

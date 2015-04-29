@@ -1,0 +1,214 @@
+
+<!doctype html>
+<html lang="en">
+<body>
+	<div class="slides">
+
+		<section>
+			<h1>VERSION CONTROL FUNDAMENTALS</h1>
+			<p>by Alex Dankoff</p>
+		</section>
+
+		<section>
+			<h2>What is revision control?</h2>
+			<ul>
+				<li>A tool for tracking changes.</li>
+				<li>It's an Industry standard.</li>
+				<li>All open source code project’s are kept in source control.</li>
+			</ul>
+		</section>
+
+		<section>
+			<h2>Revision control in everyday life</h2>
+			<ul>
+				<li>We use revision control in all of our digital documents. Anything you can “Ctrl-z” is technically under revision control.</li>
+				<li>Wordpress publishing and editing is a type of version control.</li>
+				<li>Wordpress core code is kept in version control</li>
+				<li>Most open source plugins and themes are kept in version control</li>
+			</ul>
+		</section>
+
+		<section>
+			<h2>Why version control?</h2>
+			<ul>
+				<li>Tracking changes to our code: revision tracking.</li>
+				<li>Working in a team: merging and branching.</li>
+				<li>Deploying changes to environments: hooks.</li>
+				<li>Sharing your code from anywhere: online repositories</li>
+			</ul>
+		</section>
+
+		<section>
+			<section>
+				<h2>The different flavors of version control</h2>
+				<p><a href="http://git-scm.com/">Git</a> - <a href="https://subversion.apache.org/">SVN</a> - <a href="http://mercurial.selenic.com/">Mercucial</a></p>
+				<p>For a full comparison see: <br><a href="http://biz30.timedoctor.com/git-mecurial-and-cvs-comparison-of-svn-software/">timedoctor.com: git mecurial and cvs/svn comparison</a></p>
+			</section>
+			<section>
+				<h2>Why I use git:</h2>
+				<ul>
+					<li>Most of the open source projects I code with are hosted on github</li>
+					<li>Most of the places I've worked use git.</li>
+					<li>It seems to be the one the community has gotten behind.</li>
+					<li>It has many options for free SAAS hosted repositories.</li>
+				</ul>
+			</section>
+		</section>
+
+		<section>
+			<section>
+				<h2>Online hosted git services</h2>
+				<p>Github and Bitbucket</p>
+				<p>Both have great web interfaces, fast upload and download times, ease of use and external plugins.</p>
+			</section>
+			<section>
+				<h3>Github</h3>
+				<ul>
+					<li>Unlimited free public repositories.</li>
+					<li>Paid private repositories.</li>
+					<li>Unlimited collaborators.</li>
+				</ul>
+				<p>Good for public repositories or open source projects that need many collaborators.</p>
+			</section>
+			<section>
+				<h3>Bitbucket</h3>
+				<ul>
+					<li>Unlimited free public repositories.</li>
+					<li>Unlimited free private repositories.</li>
+					<li>Paid collaborators over 5 users.</li>
+				</ul>
+				<p>Good for private projects that will not be open source that only require a few collaborators.</p>
+			</section>
+		</section>
+
+		<section>
+			<h2>GUI Tools for git</h2>
+			<ul>
+				<li>for Mac: <a href="http://www.sourcetreeapp.com/">SourceTree</a> - <a href="http://git-scm.com/downloads/guis">More</a></li>
+				<li>for Windows: <a href="https://code.google.com/p/tortoisegit/">TortoiseGIT</a> - <a href="http://git-scm.com/downloads/guis">More</a></li>
+				<li>Lot of IDE plugins also for sublime, phpstorm and more. Same commands, easier interface.</li>
+			</ul>
+		</section>
+
+		<section>
+			<h2>Time for time travel</h2>
+			<ol>
+				<li><a href="http://git-scm.com/">Installing git</a></li>
+				<li>Creating account and <a href="https://help.github.com/articles/generating-ssh-keys/">generating keys</a></li>
+				<li><a href="https://help.github.com/articles/create-a-repo/">Creating</a>, cloning and configuring a repo</li>
+				<li>Adding, commiting and pushing to the repo</li>
+				<li>Branching, pulling, merging the repo</li>
+			</ol>
+		</section>
+
+		<section>
+			<h2><a href="http://git-scm.com/">Installing git</a></h2>
+			<p>Go to the git website and install depending on your different OS. There's an easy installer for both Windows and Mac.</p>
+		</section>
+
+		<section>
+			<h2>Creating account and <a href="https://help.github.com/articles/generating-ssh-keys/">generating keys</a></h2>
+			<pre><code>
+ls -al ~/.ssh
+ssh-keygen -t rsa -C "your_email@example.com"
+ssh-add ~/.ssh/id_rsa
+pbcopy < ~/.ssh/id_rsa.pub
+ssh -T git@github.com
+			</code></pre>
+		</section>
+
+		<section>
+			<section>
+				<h2><a href="https://help.github.com/articles/create-a-repo/">Creating</a>, cloning and configuring a repo</h2>
+				<pre><code>
+git clone https://github.com/adankoff/wp-composer.git
+git config --global user.name "Alex Dankoff"
+git config --global user.email "a.dankoff@gmail.com"
+				</code></pre>
+			</section>
+			<section>
+				<h2>.gitignore</h2>
+				<pre><code>
+*.log
+.htaccess
+sitemap.xml
+wp-config.php
+wp-content/uploads/
+				</code></pre>
+			</section>
+		</section>
+
+		<section>
+			<section>
+				<h2>Adding files to the repo</h2>
+				<pre><code>
+git status
+git add filename.txt
+git status
+#add all changes
+git add --all
+				</code></pre>
+			</section>
+			<section>
+				<h2>Commiting files to the repo</h2>
+				<pre><code>
+git commit -m "added new files"
+git status
+#add all and commit at the same time
+git commit -a -m "added new files"
+				</code></pre>
+			</section>
+			<section>
+				<h2>Pushing files to the repo</h2>
+				<pre><code>
+git push origin master
+git status
+git diff
+				</code></pre>
+			</section>
+		</section>
+
+		<section>
+			<section>
+				<h2>Branching from master</h2>
+				<pre><code>
+git branch temporary
+git checkout temporary
+#create branch and checkout branch
+git checkout -b temporary
+				</code></pre>
+			</section>
+			<section>
+				<h2>Pulling from master</h2>
+				<pre><code>
+git commit -m "add these files"
+git status
+				</code></pre>
+			</section>
+			<section>
+				<h2>Merging into master</h2>
+				<pre><code>
+git push origin master
+git status
+				</code></pre>
+			</section>
+		</section>
+
+		<section>
+			<h2>Further reading:</h2>
+			<ul>
+				<li>Github Tutorial <a href="https://try.github.io/levels/1/challenges/1">></a></li>
+				<li>Code samples <a href="http://coolestguidesontheplanet.com/install-update-latest-version-git-mac-osx-10-9-mavericks/">></a></li>
+				<li>Using branches, atlassian tutorials are good, nice graphics. <a href="https://www.atlassian.com/git/tutorials/using-branches/git-branch">></a></li>
+				<li>Comparing all the different kinds of workflows. <a href="https://www.atlassian.com/git/tutorials/comparing-workflows">></a></li>
+				<li>The one we use. <a href="http://nvie.com/posts/a-successful-git-branching-model/">></a></li>
+				<li>Github cheat sheet. <a href="https://training.github.com/kit/downloads/github-git-cheat-sheet.pdf">></a></li>
+				<li>A Single feature in github, workflow for pull requests. <a href="https://guides.github.com/introduction/flow/index.html">></a></li>
+				<li>More on pull requests and github master branch <a href="http://scottchacon.com/2011/08/31/github-flow.html">></a></li>
+			</ul>
+		</section>
+
+	</div>
+
+</body>
+</html>
